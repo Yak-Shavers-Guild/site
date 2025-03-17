@@ -1,0 +1,25 @@
+<!--- -*- mode: Markdown; var: -*- -->
+# 2025-03-17T12:21:58-0700
+I am starting fresh with this project (to create a "literate program"
+for something resembling Hilbert's programme with a digital twist).
+
+Right now I am working my way through the "prerequisites" (in the
+introduction "chapter").
+
+## Git Snafu
+
+I may accidentally delete the `pages` directory, so if I want to get
+it back again, I should do the following:
+
+```
+~/ysg/$ git clone git@github.com:Yak-Shavers-Guild/yak-shavers-guild.github.io.git
+~/ysg/$ cp -r yak-shavers-guild.github.io/ pages
+~/ysg/$ cd pages
+~/ysg/pages/$ git remote set-url --add origin https://codeberg.org/ysg/pages.git
+```
+
+This will fetch changes from github, and push to both codeberg **and**
+github. 
+
+See also the [discussion on Stackoverflow](https://stackoverflow.com/questions/11690709/can-a-project-have-multiple-origins)
+about a git project having multiple origins.

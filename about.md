@@ -15,7 +15,7 @@ which you are reading).
 The "big picture" resembles [Hilbert's programme](https://plato.stanford.edu/entries/hilbert-program/) in the foundations
 of mathematics. The broad contours consists of the following steps:
 
-1. We replace Hilbert's "finitary metatheory" with "a fragment of Standard ML".
+1. We replace Hilbert's "finitary metatheory" with "a fragment of [Standard ML](./sml/index.md)".
 2. We build a proof assistant called "Myo" based on intuitionistic
    HOL. The goal is to be able to reason about code written using our
    fragment of Standard ML (from step 1) with Myo, and possibly
@@ -38,13 +38,37 @@ assistant's behaviour. Then we prove that the code implements the
 specification, and prove properties about the proof assistant from the
 abstract machine.
 
+## Inspirations
+
+This project is motivated from Hilbert's programme broadly, but how
+we're implementing it as a website which links identifiers back to
+their definitions (all the way back to Standard ML's "basis" [prelude]
+library) was heavily inspired by [Emacs's](https://www.gnu.org/software/emacs/manual/html_node/emacs/Looking-Up-Identifiers.html) <kbd>M-.</kbd> taking the
+user to the definition of identifiers all the way back to the C code.
+
+The basic 3-language strategy (use (1) a programming language to build
+(2) a logical framework to implement (3) a proof assistant) was
+proposed in Robert Pollack's "On extensibility of proof checkers" (in
+Dybjer, Nordström, and Smith (eds),
+<cite>International Workshop on Types for Proofs and Programs</cite> TYPES
+1994, Springer, pp. 140-161, [`doi:10.1007/3-540-60579-7_8`](https://doi.org/10.1007/3-540-60579-7_8)). 
+
+But it stemmed from trying to explore [Mizar](https://mizar.uwb.edu.pl/)-like declarative style
+proof assistants, and see how we could support "variations of the axioms"
+(like using Feferman universes instead of Grothendieck universes).
+
+Daniel de Haas's observations about
+[what Emacs got right](https://danielde.dev/blog/what-emacs-got-right)
+is applicable to our endeavour, as is Smalltalk's "extreme" philosophy
+(where "you live in the program").
+
 ## Languages as Ontological Committment
 
 The basic idea underlying the presentation: everything is built out of
-languages. It's [languages all the way down](https://en.wikipedia.org/wiki/Turtles_all_the_way_down).
+[languages](intro/language.md). It's [languages all the way down](https://en.wikipedia.org/wiki/Turtles_all_the_way_down).
 
 We start with an informal metalanguage (English), describe a formal
-metalanguage (Standard ML), and use it to construct proof assistants.
+metalanguage ([Standard ML](sml/index.md)), and use it to construct proof assistants.
 
 After all, we will be describing one language after another,
 implementing interpreters for one language after another.

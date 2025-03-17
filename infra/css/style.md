@@ -169,6 +169,34 @@ The margins and paddings are chosen to make the rest of the HTML
 }
 ```
 
+### Keyboard
+
+The `<kbd>` element is used for user input. I seldom use it, but I
+don't want it to look ugly.
+
+This is heavily inspired by [Dylan Smith's style](https://dylanatsmith.com/wrote/styling-the-kbd-element).
+I should also weigh this against what Emacs stackexchange does (see,
+e.g., the discussion [elsewhere](https://emacs.stackexchange.com/q/68544/14353)).
+
+The `display: inline-block` breaks things when we try to print out the
+page onto paper: the width of the element grows (for some reason) on
+Firefox. 
+
+```css
+kbd {
+    border-radius: 0.25rem;
+    border: 1px solid #cbcccd;
+    box-shadow: 0 2px 0 1px #cbcccd;
+    /* display: inline-block; */
+    font-size: 0.6875em;
+    line-height: 1;
+    padding: 2px 5px;
+    position: relative;
+    text-align: center;
+    top: -1px;
+}
+```
+
 ### Inline citations, abbreviations, definitions
 
 The citation tags should be italicized, though I may want to carve out

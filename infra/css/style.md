@@ -169,6 +169,42 @@ The margins and paddings are chosen to make the rest of the HTML
 }
 ```
 
+### Dangerous Bends
+
+We could implement a Bourbaki-like "dangerous bend" environment.
+
+This would use the Unicode "☡" (`U+2621`) symbol for the dangerous bend.
+I should double check this is supported by "enough" web browsers.
+
+There is a solid red border to the left, and the background color is a
+very light shade of red (noticeable enough to distinguish from the
+usual background color, but not violent enough to jar the reader).
+
+```css
+div.danger {
+    background-color: #fff8ee;
+    border-left-style: solid;
+    border-width: 5px;
+    border-color: red;
+    margin-bottom: 2em;
+    padding: 6px 0px 6px 10px;
+}
+
+div.danger p:first-of-type {
+    display: inline;
+}
+
+div.danger:before {
+    color: #ccc;
+    content: '☡';
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.25em;
+}
+```
+
 ### Keyboard
 
 The `<kbd>` element is used for user input. I seldom use it, but I
@@ -288,7 +324,7 @@ blockquote {
   font-size: 92.7%; /* 1.5/phi */
   line-height: calc(1ex / 0.32);
   margin: 0 0 0 0.5rem;
-  padding: 0.5rem 0 0.5rem 0.5rem;
+  padding: 0.5rem;
 }
 ```
 

@@ -1,10 +1,32 @@
 <!--- -*- mode: Markdown; var: -*- -->
+# 2025-03-18T10:30:46-0700
+Barendregt's "Lambda Calculus with Types" (1992) cites Geuvers (1990)
+for introducing λHOL in Examples 5.2.4 item 6 
+
+# 2025-03-18T09:07:39-0700
+Note to self: if I need to render a computer monitor using CSS,
+historically "classic" monitors had 80 characters per line and 25
+lines displayed at once. Although it seems unlikely to have more than
+67 characters (or so) displayed in the current CSS style, it is good
+to bear this in mind.
+
 # 2025-03-17T12:21:58-0700
 I am starting fresh with this project (to create a "literate program"
 for something resembling Hilbert's programme with a digital twist).
 
 Right now I am working my way through the "prerequisites" (in the
 introduction "chapter").
+
+## Isabelle
+
+The `inductive` keyword is defined at the end of [this file](https://isabelle.in.tum.de/dist/library/HOL/HOL/ISABELLE_HOME/src/HOL/Tools/inductive.ML.html).
+
+It's curious that the command is [literally](https://github.com/isabelle-prover/mirror-isabelle/blob/master/src/HOL/Tools/inductive.ML#L1310)
+`Outer_Syntax.local_theory \<^command_keyword>\<open>inductive\<close> "define inductive predicates"`
+which adds a new top-level command (as far as I can tell).
+
+It would be nice to support this sort of thing (extensible syntax for
+the proof assistant).
 
 ## Git Snafu
 
@@ -23,3 +45,4 @@ github.
 
 See also the [discussion on Stackoverflow](https://stackoverflow.com/questions/11690709/can-a-project-have-multiple-origins)
 about a git project having multiple origins.
+

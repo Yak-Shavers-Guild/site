@@ -37,11 +37,12 @@ upper-division undergraduate at university studying Mathematics.
       formal language
     - [Operational Semantics](untyped-lambda/operational-semantics.md)
       discusses "how to work" with untyped lambda calculus
+    - Church--Rosser theorem
     - [Church encoding](untyped-lambda/church-encoding.md) for describing how
       to do arithmetic and "program" with untyped lambda calculus
     - [Computation](untyped-lambda/computation.md) can be treated as logically
       equivalent to Turing machines or untyped lambda calculus.
-  - Typed Arithmetic
+  - [Typed Arithmetic](typed-arithmetic.md)
   - Simply-Typed Lambda Calculus
   - System F
 - Logic

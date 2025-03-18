@@ -108,12 +108,15 @@ When there are $n=0$ premises, we call the inference rule either an
 <br>(End of Definition 2)
 </div>
 
+<div class="proclaim example">
 **Example 2.1:** The familiar [modus ponens](https://en.wikipedia.org/wiki/Modus_ponens)
 is an inference rule schema in most proof calculi for logic
 \[\frac{(A\implies B)\mathsf{true},\quad A~\mathsf{true}}{B~\mathsf{true}}\hbox{MP}(A,B)\]
 where the rule name "MP" is explicitly parametrized by the
 metavariables $A$ and $B$ ranging over the object language.
+</div>
 
+<div class="proclaim example">
 **Example 2.2:** We can describe proof steps for formal proofs using
 inference rules.
 
@@ -124,6 +127,7 @@ where the judgements are of the form $\Gamma\vdash\varphi~\mathsf{true}$
 for some finite list of formulas $\Gamma$ and a formula $\varphi$,
 and interpreted as "Assuming the formulas appearing in $\Gamma$ are
 all true, then we have $\varphi$ also be true".
+</div>
 
 ...
 
@@ -207,7 +211,7 @@ situation in logic where a valid argument properly applies inference
 rules, but may not have true premises).
 
 Observe when $n=0$ we recover the notion of a "derivable judgement".
-<br>(End of Definition)
+<br>(End of Definition 5)
 </div>
 
 The main properties which can be proven for hypothetical judgements
@@ -293,7 +297,7 @@ a <dfn>Admissible Inference Rule</dfn> (or a "sound inference rule")
 if whenever we have derivations $\mathcal{D}_{1}$ of $J_{1}$, ...,
 and $\mathcal{D}_{n}$ of $J_{n}$,
 then there exists a derivation $\mathcal{D}$ of $J$.
-<br>(End of Definition)
+<br>(End of Definition 8)
 </div>
 
 Observe if one of the premises $J_{i}$ is always false, then the

@@ -33,10 +33,11 @@ of "computation" (used in computer science). We will explore this
 
 **References**
 
-I relied on Henk Barendregt's class <cite class="book">The Lambda
-Calculus, Its Syntax and Semantics</cite> () as well as healthy doses
+I relied on Henk Barendregt's classic <cite class="book">The Lambda
+Calculus, Its Syntax and Semantics</cite> (College Publications
+paperback reprint, 2012) as well as healthy doses
 of J. Roger Hindley and Jonathan P. Seldin's <cite
-class="book">Lambda-Calculus and Combinators – An Introduction</cite>
+class="book">Lambda-Calculus and Combinators --- An Introduction</cite>
 (CUP, 2008, [doi:10.1017/CBO9780511809835](https://doi.org/10.1017/CBO9780511809835)).
 
 <footer>

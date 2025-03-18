@@ -107,11 +107,15 @@ Essentially this means $e$ is "the same as" $f$.
 <br>(End of Definition 1)
 </div>
 
+<div class="proclaim example">
 **Example 1.1:** Consider the successor function $f(n)=n+1$. This is
 lambda-definable. 
+</div>
 
+<div class="proclaim example">
 **Example 1.2:** Consider addition $f(n_{1},n_{2})=n_{1}+n_{2}$. This
 is lambda-definable. (Multiplication is also lambda-definable.)
+</div>
 
 ...
 

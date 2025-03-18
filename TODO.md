@@ -1,4 +1,5 @@
 - Introduction
+  - [ ] Discuss metavariables
 - Standard ML
   - [ ] Program up a Turing Machine in Standard ML as an example?
 - Infrastructure

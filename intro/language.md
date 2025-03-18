@@ -40,6 +40,7 @@ An <dfn>Alphabet</dfn> consists of a nonempty set of 'letters' (or
 
 What are some examples of alphabets?
 
+<div class="proclaim example">
 **Example 1.1:** The "Latin alphabet" is an example of an alphabet
 consisting of either 26 or 52 letters (depending on if we include both
 lowercase and uppercase letters, or just lowercase letters, or just
@@ -47,20 +48,26 @@ uppercase letters).
 
 We will denote the set of 52 uppercase and lowercase Latin letters
 as $\Sigma_{\text{Latin}}$.
+</div>
 
+<div class="proclaim example">
 **Example 1.2:** The collection of Chinese characters is another example
 of an alphabet. This is an example of an "alphabet" which is not an
 alphabet in the sense of natural language: Chinese characters consist
 of ideograms ("standardized pictograms"). The Unicode encoding of
 Chinese-Japense-Korean characters offers 97,680 entries in the
 alphabet.
+</div>
 
+<div class="proclaim example">
 **Example 1.3:** The collection of digits written as Arabic numerals
 forms a finite alphabet $\Sigma_{\text{Digits}}=\{0,1,2,3,4,5,6,7,8,9\}$.
 
 Note we may abbreviate this as $\{0,1,\cdots,9\}$ when it is clear we
 are enumerating all possibilities within an ordered range.
+</div>
 
+<div class="proclaim example">
 **Example 1.4:** Bourbaki's <cite class="book">Elements of Mathematics</cite>
 develops a formal language for Mathematics using the alphabet
 consisting of the set $\{\neg,\lor,\tau,\Box,\in,=,'\}\cup\Sigma_{\text{Latin}}\cup\{0,1,2,\cdots,9\}$ where
@@ -74,9 +81,12 @@ This presentation for Bourbaki's formal language is a bit of a
 simplification. Bourbaki included a complicated mechanism of linkages,
 which is baroque by today's standards. We would instead use something
 like de Bruijn indices for bound variables if we were doing it today.
+</div>
 
+<div class="proclaim example">
 **Puzzle:** How do we store an alphabet on the computer? Computers are
 designed to crunch numbers, not wrangle text.
+</div>
 
 <div class="proclaim definition">
 **Definition 2:** _Character encodings._<br>
@@ -93,13 +103,16 @@ possibly $x\neq y$) or it is defined and $x=y$.
 <br>(End of Definition 2)
 </div>
 
+<div class="proclaim example">
 **Example 2.1:** The [ASCII](https://en.wikipedia.org/wiki/ASCII)
 character encoding emerged from the primordial swap of earlier
 computer science. It encodes anything you'd like from a typewriter.
 
 Here $N_{\text{max}}^{(\text{ASCII})}=127 = 2^{8}-1$, hence may be
 encoded using an 8-bit integer.
+</div>
 
+<div class="proclaim example">
 **Example 2.2:** The [Unicode standard](https://www.unicode.org/main.html) 
 offers several character encodings each with $N_{\text{max}}^{(\text{Uni})}=1\,112\,064$
 possible symbols.
@@ -113,6 +126,7 @@ the possible 1,112,064 code points.
 In practice, the UTF-8 encoding is "the way to go" when working with
 the Unicode standard, but some programming languages use UTF-16 (e.g.,
 Java). 
+</div>
 
 Now, where are we? Well, we have formalized the notion of an
 "alphabet", now we just need to formalize a notion of "words". We do
@@ -134,9 +148,11 @@ length of the finite sequence.
 The convention is to write a string $a=(a_{1},a_{2},\dots,a_{n})$ as 
 we would if we were just spelling: $a=a_{1}a_{2}\cdots a_{n}$.
 
+<div class="proclaim">
 **Abuse of notation:** It is common to treat letters $a_{1}\in\Sigma$
 as strings of length 1 $(a_{1})$ written just as $a_{1}$. (End of
 abusing notation)
+</div>
 
 Since I am assuming the reader has familiarity with sequences, we will
 not prove this is well-defined (you should know finite sequences exist).
@@ -241,6 +257,12 @@ $\Sigma^{*}$ for the set of all strings over $\Sigma$.
 
 ### Formal Languages and Grammars
 
+> In the beginning was the Word,<br>
+> and the Word was with God,<br>
+> and the Word was God.
+> 
+> --- John 1:1
+
 We now have enough notions defined for us to turn our focus towards
 languages. 
 
@@ -262,6 +284,7 @@ over $\Sigma$.
 There's nothing magical here about a formal language...which is
 good. When the magic disappears, it's because we understand the thing.
 
+<div class="proclaim example">
 **Example 8.1:** We could define "Webster English" as the formal
 language over $\Sigma_{\text{Latin}}$ consisting of all words which
 are defined in Webster's dictionary.
@@ -269,11 +292,24 @@ are defined in Webster's dictionary.
 More generally, one manner of defining a formal language over a given
 alphabet is to literally enumerate all words in the language. This is
 usually infeasible practically.
+</div>
 
+<div class="proclaim example">
 **Example 8.2:** Any programming language is also a formal
 language. Its alphabet corresponds to the character encoding usually
 provided by ASCII or Unicode.
 
+From another perspective, the alphabet could consist of every possible
+identifier, reserved keyword, or operator --- every conceivable "token".
+Then "words" are valid command or programs.
+
+The point of this alternate perspective is that we can look at the
+**alphabet** as itself a formal language, so that we may build a tower
+of languages to describe the words, sentences (commands),
+"manuscripts" (valid computer programs).
+</div>
+
+<div class="proclaim example">
 **Example 8.3:** Consider the alphabet $\Sigma=\{=,+,-,\times,/,(,)\}\cup\Sigma_{\text{Digits}}$
 (where we introduced $\Sigma_{\text{Digits}}$ back in Example 1.3).
 We could consider the sublanguage $L_{\text{num}} = (\{1,2,\cdots,9\}\Sigma_{\text{Digits}}^{*})\cup\{0\}$
@@ -301,6 +337,7 @@ $L_{\text{eqns}}=L_{\text{pexp}}\{=\}L_{\text{pexp}}$. These include
 false formulas like $3=2$. We include these in the language so we may
 speak of both correct and incorrect equations --- errors are in fact
 "speakable". 
+</div>
 
 This approach generalizes to give us a way to _construct_ a language
 out of sublanguages (of sorts). We define a language by offering rules for
@@ -369,6 +406,34 @@ Programming languages fall into this category of grammars.
 <br>(End of Remark)
 </div>
 
+We may write a grammar for Example 8.3.
+
+<div class="proclaim example">
+**Example 9.1.** We have the following BNF grammar describing
+numerical expressions.
+```bnf
+<nonzero digit> ::= '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+<digit> ::= '0' | <nonzero digit>
+
+<number> ::= <digit>
+          |  <non zero digit> <number>
+
+<operator> ::= '+' | '-' | '*' | '/'
+
+<expr> ::= <number>
+        |  "(" <expr> ")" <operator> "(" <expr> ")"
+
+<equation> ::= <expr> "=" <expr>
+
+<start> ::= <equation>
+```
+The resulting language generated by this grammar is identical to the
+language from Example 8.3.
+</div>
+
+For another example of a formal grammar, see Example 11.1 below for a
+description of formal proofs resembling those found in "Working Mathematics".
+
 <div class="proclaim definition">
 **Definition 10:** _Derivations in a grammar_.<br>
 Let $G$ be a formal grammar.
@@ -405,6 +470,7 @@ A formal grammar describes a sort of rewriting system. The production
 rules tell us how we can rewrite sentential forms until we get a
 string over the terminal symbols.
 
+<div class="proclaim example">
 **Example 11.1:** We may offer a formal language for writing
 Mathematical proofs, following Freek Wiedijk's [<cite class="article">Mathematical Vernacular</cite>](https://www.cs.ru.nl/~freek/notes/mv.pdf)
 (unpublished manuscript, <i>c</i>.2000). Assuming that we have some understood way for
@@ -466,6 +532,7 @@ logical proof.
 Further, this example demonstrates the sort of thing we're interested
 in studying: what's a formal grammar approximating how Mathematicians
 "write mathematics"?
+</div>
 
 ## Object Language and Metalanguage
 

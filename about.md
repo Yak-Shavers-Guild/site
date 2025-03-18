@@ -57,10 +57,23 @@ But it stemmed from trying to explore [Mizar](https://mizar.uwb.edu.pl/)-like de
 proof assistants, and see how we could support "variations of the axioms"
 (like using Feferman universes instead of Grothendieck universes).
 
+It'd be nice to reason about the metatheory of a Mizar-like proof
+assistant. [Isabelle](https://isabelle.in.tum.de/) is an
+extraordinarily extensible logical framework (which acts like an
+"engine" for emulating deductive systems), but it is not a
+_metalogical_ framework (which allows us to _reason about_ deductive
+systems, i.e., prove metatheoretic properties about a deductive
+system). HOL is a metalogical framework.
+
+A similar project is Cezary Kaliszyk and Karol Pąk's Isabelle/Mizar
+research programme. Many of the papers reporting results concerning
+Isabelle/Mizar may be found on [Karol Pąk's homepage](https://alioth.uwb.edu.pl/~pakkarol/publications.php).
+
 Daniel de Haas's observations about
 [what Emacs got right](https://danielde.dev/blog/what-emacs-got-right)
 is applicable to our endeavour, as is Smalltalk's "extreme" philosophy
-(where "you live in the program").
+(where "you live in the program" --- see Ralf Johnson's 
+[Smalltalk is different](http://perchta.fit.vutbr.cz/smalltalk/7)).
 
 ## Languages as Ontological Committment
 

@@ -14,4 +14,5 @@ it to create tools as well as to implement proof assistants.
 But since we do not assume our readers are programmers or computer
 scientists, we should review some of the basics of programming.
 
-
+- [Tutorial on Programming](tutorial/index.md) specifically for
+  Mathematicians 

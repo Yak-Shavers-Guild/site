@@ -24,3 +24,13 @@ Basically, we can partition the contents into the following "chapters":
 Feel free to file an issue on [Codeberg](https://codeberg.org/ysg/site/issues)
 or [Github](https://github.com/Yak-Shavers-Guild/site/issues) if you
 spot an error, have a suggestion, or whatever.
+
+If you find this website useful (or if you have feedback, have spotted
+an error, etc.), drop a friendly email to 
+`yakshaversguild AT gmail DOT <remove this> com`. 
+I honestly have no analytics, so I don't know who all is reading this.
+
+If you want to stay posted and receive low-frequency periodic emails
+when I push out new chapters,
+then email me (`yakshaversguild AT gmail DOT <remove this> com`)
+asking to stay subscribed.

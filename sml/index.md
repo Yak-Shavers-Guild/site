@@ -16,3 +16,4 @@ scientists, we should review some of the basics of programming.
 
 - [Tutorial on Programming](tutorial/index.md) specifically for
   Mathematicians 
+- [Unit Testing](../sml-xunit/index.md)

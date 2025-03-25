@@ -167,6 +167,116 @@ The margins and paddings are chosen to make the rest of the HTML
 .remark.proclaim:hover {
     background-color: #D9FEE5; /* #90EE90; */
 }
+
+@media only print {
+    .proclaim {
+        margin: 2.25ex 0;
+    }
+    .proclaim > p:first-of-type {
+        display: none;
+    }
+}
+```
+
+### Specifications and Unit Tests
+
+We will wrap unit tests in a `<details>` element, because it's only
+interesting if you're reading the engineering perspective on things.
+
+We give it a little padding and a border ("frame"). When opened, there
+will be a horizontal line separating the `<summary>` from the rest of
+the `<details>`.
+
+```css
+details.spec {
+    border: 1px solid;
+    margin: -7px;
+    padding: 6px;
+}
+
+details.spec[open] summary {
+    border-bottom: 1px solid;
+}
+```
+
+### Proofs
+
+We will use `<details class="proof">...</details>` for proof bodies.
+
+There's a small hack to place a QED symbol (`U+220E`) at the end of
+the proof when the `<details>` is opened.
+
+```css
+details.proof {
+    font-size: smaller;
+    line-height: 1.5em;
+    margin: 0;
+    padding-left: 1em;
+}
+
+details.proof .katex {
+    font-size: 1em;
+    line-height: 1em;
+}
+
+details.proof summary {
+    display: inline-block;
+}
+
+details.proof:open {
+    /* background-color: #ddd; */
+    padding: 0 1em 1px; /* 0 0.75em 0 6px; */
+}
+details.proof[open]:hover {
+    background-color: #eee;
+    border: 1px solid #aaa;
+    margin: -1px;
+}
+
+details.proof[open]:hover > summary {
+    background-color: #bbe;
+}
+
+details.proof > summary {
+    background-color: #ccf;
+    border: none;
+    cursor: pointer;
+    padding: 2px 6px;
+}
+
+details.proof[open] > p:first-of-type {
+    display: none;
+}
+
+@media only screen {
+    details.proof:open::after {
+        content: "∎";
+        float: right;
+        margin-right: -14px;
+        margin-top: -5.5ex;
+    }
+}
+@media only print {
+    details.proof:open::after {
+        content: "∎";
+        float: right;
+        margin-right: -14px;
+        margin-top: -3.5ex;
+    }
+    details.proof[open] {
+        margin-bottom: 2.5ex;
+    }
+}
+
+
+
+summary {
+    list-style-type: '⬇ ';
+}
+
+details[open] > summary {
+    list-style-type: '⬆ ';
+}
 ```
 
 ### Dangerous Bends
@@ -506,6 +616,40 @@ with "(example)" afterwards.
         content: attr(data-lang) "(example)";
         z-index: 1000;
     }
+}
+```
+
+### Syntax Highlighting
+
+The CSS for syntax highlighting follows Pygments [tokens css classes](https://github.com/rouge-ruby/rouge/wiki/List-of-tokens)
+and Selenized color scheme.
+
+```css
+/* comments */
+.src .c {
+    color: #72898f; /* dim0 */
+    font-style: italic;
+}
+
+.example .c {
+    color: #909995;
+    font-style: italic;
+}
+```
+
+The reserved keywords should be red.
+
+``` css
+.example .k, .src .k {
+    color: #fa5750;
+}
+```
+
+Strings are blue (apparently).
+
+```css
+.example .s, .src .s {
+    color: #4695f7;
 }
 ```
 

@@ -14,7 +14,8 @@ built from scratch.
 - [Makefile](./makefile.md) for generating the static HTML artifacts
   for Github and Codeberg pages
 - [CSS code](./css/index.md)
-
+- [Design decisions](./design-decisions.md) made during the
+  construction of this project
 
 <footer>
 **[** [Back](../index.md) **]**

@@ -16,4 +16,6 @@ scientists, we should review some of the basics of programming.
 
 - [Tutorial on Programming](tutorial/index.md) specifically for
   Mathematicians 
+- [Axiomatic description](axioms/index.md) for our fragment of Standard ML 
+  as a [deductive system](../intro/deductive-system.md)
 - [Unit Testing](../sml-xunit/index.md)

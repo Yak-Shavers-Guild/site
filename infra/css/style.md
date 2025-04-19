@@ -470,6 +470,13 @@ li p:first-child {
 li p:last-child, li p:has(+ul), li p:has(+ol) {
     margin-bottom: .125rem;
 }
+
+li pre {
+    margin-bottom: .125rem;
+}
+ul + pre, ol + pre {
+    margin-top: .125rem;
+}
 ```
 
 ### Code blocks and inline code
@@ -727,6 +734,28 @@ div.tree {
 }
 ```
 
+### Tables
+
+The only thing I want to make certain is that a table does not default
+to bold font weight.
+
+```css
+th {
+    font-weight: 500;
+}
+```
+
+### Images
+
+We need images to have a maximum width of 100%, so mobile rendering
+"works".
+
+```css
+img {
+    max-width: 100%;
+}
+```
+
 ## Desktop specific rendering
 
 Broadly, we consider a "desktop reader" to be when the user is using
@@ -801,6 +830,9 @@ the styling to avoid needless whitespace.
 Further, there is no background anymore: the centered text is now the
 entire content rendered. (This is idiomatic 12-8-4 convention.)
 
+The KaTeX equations, if "too wide", will break mobile rendering. We
+therefore change the overflow behaviour to avoid this.
+
 ```css
 @media only screen and (max-width: 599px) {
     body {
@@ -811,6 +843,7 @@ entire content rendered. (This is idiomatic 12-8-4 convention.)
     }
     .katex {
         font-size: 1em !important;
+        overflow: scroll;
     }
     pre {
         /* font-size: 20px; */

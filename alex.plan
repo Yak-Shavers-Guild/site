@@ -1,4 +1,28 @@
 <!--- -*- mode: Markdown; var: -*- -->
+# 2025-04-13T08:29:02-0700
+MoscowML requires the following naming conventions:
+
+- If a structure (or functor) `Foo` implements a signature, then that
+  signature must be named `Foo` and live in the file `Foo.sig`
+- A structure (or functor) named `Foo` must live in `Foo.sml`
+- A signature implemented by two or more structures, or implemented by
+  a structure with a different name, must live in a file suffixed `-sig.sml`
+
+See sections 5.2 and 7 of [MoscowML's Manual](https://mosml.org/manual.pdf).
+
+Apparently the smlnj-lib uses this naming convention (well, _all_
+signatures reside in `kebab-case-name-sig.sml`, functors are suffixed
+`Fn`).
+
+In particular, this means my naming conventions that:
+
+- signatures use `SCREAMING_SNAKE_CASE` and live in `snake_case.sig`
+- structures and functors use `PascalCase` and live in
+  `pascal_case.sml`
+- files use `snake_case.sml` (or `snake_case.sig`)
+
+...no longer work and completely break everything. This sucks.
+
 # 2025-03-18T10:30:46-0700
 Barendregt's "Lambda Calculus with Types" (1992) cites Geuvers (1990)
 for introducing λHOL in Examples 5.2.4 item 6 
@@ -24,6 +48,9 @@ The `inductive` keyword is defined at the end of [this file](https://isabelle.in
 It's curious that the command is [literally](https://github.com/isabelle-prover/mirror-isabelle/blob/master/src/HOL/Tools/inductive.ML#L1310)
 `Outer_Syntax.local_theory \<^command_keyword>\<open>inductive\<close> "define inductive predicates"`
 which adds a new top-level command (as far as I can tell).
+
+(It appears that [`outer_syntax.ML`](https://github.com/isabelle-prover/mirror-isabelle/blob/master/src/Pure/Isar/outer_syntax.ML)
+manages this.)
 
 It would be nice to support this sort of thing (extensible syntax for
 the proof assistant).

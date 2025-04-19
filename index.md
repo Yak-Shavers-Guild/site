@@ -3,6 +3,12 @@ title: Yak Shavers Guild
 ---
 # Yak Shavers Guild
 
+> **yak shaving** (/jæk ʃeɪ.vɪŋ/)
+> 
+> [MIT AI Lab, after 2000: orig. probably from a <cite>Ren & Stimpy</cite> episode.] Any seemingly pointless activity which is actually necessary to solve a problem which solves a problem which, several levels of recursion later, solves the real problem you're working on.
+> 
+> --- Eric S Raymond, [Jargon File entry](http://www.catb.org/jargon/html/Y/yak-shaving.html)
+
 **Elevator Pitch:** This website is a literate program (an
 honest-to-god Web) which explores various ways to implement proof
 assistants using Standard ML. For a longer discussion, see the

@@ -26,6 +26,56 @@ of mathematics. The broad contours consists of the following steps:
 3. We use Myo to build proof assistants for formalizing mathematics
    and prove properties about these proof assistants.
 
+Schematically, we could doodle the plan as something like:
+
+**Phase one:** with Standard ML, build a logical framework Myo, and
+use it to build a HOL proof assistant and specifically a code
+generation tool.
+
+<table style="margin: 0 auto"><tbody>
+<tr><th style="border: 1px solid">Code Generation</th><th></th><th></th></tr>
+<tr><th style="border: 1px solid">HOL</th>
+<th style="min-width:1rem">&nbsp;</th>
+<th style="min-width:8rem"></th></tr>
+<tr><th style="border: 1px solid" colspan="3">Bootstrap Myo (logical framework)</th></tr>
+<tr><th style="border: 1px solid" colspan="3">Standard ML bedrock</th></tr>
+</tbody></table>
+
+**Phase two:** specify the behaviour of the logical framework in terms
+of HOL, and use the code for Myo produced by the code generator module
+in HOL. We reason about Myo using the HOL formalization of it.
+
+We jettison the privional parts (in light gray text).
+
+New components are written in green italicized bold text.
+
+<table style="margin: 0 auto"><tbody>
+<tr><th style="border: 1px solid; color: green; font-style: italic; font-weight:700">Myo-in-Myo</th><th></th><th></th></tr>
+<tr><th style="border: 1px solid">Code Generation</th><th></th>
+<th style="min-width:8rem"></th></tr>
+<tr><th style="border: 1px solid">HOL</th>
+<th style="min-width:1rem">&nbsp;</th>
+<th style="min-width:8rem"></th></tr>
+<tr><th style="border: 1px solid; color: green; font-style: italic; font-weight:700" colspan="3">Myo (logical framework)</th></tr>
+<tr><th style="border: 1px solid; color: #888" colspan="3">Bootstrap Myo (logical framework)</th></tr>
+<tr><th style="border: 1px solid; color: #888" colspan="3">Standard ML bedrock</th></tr>
+</tbody></table>
+
+**Phase three:** start investigating declarative proof styles.
+This is specifically "working mathematics" (pure and applied
+mathematics, not the foundations of mathematics, and certainly not programming).
+
+<table style="margin: 0 auto"><tbody>
+<tr><th style="border: 1px solid">Myo-in-Myo</th><th></th><th style="border: 1px solid; color: green; font-style: italic; font-weight:700">Working Mathematics</th></tr>
+<tr><th style="border: 1px solid">Code Generation</th><th></th><th style="border: 1px solid; color: green; font-style: italic; font-weight:700">Axiomatic Set Theory</th></tr>
+<tr><th style="border: 1px solid">HOL</th>
+<th style="min-width:2rem">&nbsp;</th>
+<th style="border: 1px solid; color: green; font-style: italic; font-weight:700">First-Order Logic</th></tr>
+<tr><th style="border: 1px solid" colspan="3">Myo (logical framework)</th></tr>
+<tr><th style="border: 1px solid; color: #888" colspan="3">Bootstrap Myo (logical framework)</th></tr>
+<tr><th style="border: 1px solid; color: #888" colspan="3">Standard ML bedrock</th></tr>
+</tbody></table>
+
 Want to study what happens if we vary the axioms of the set theory
 used to formalize mathematics? Or if we want to track the usage of the
 axiom of choice? Or if we want to add proof steps? Or if we want to
@@ -38,25 +88,50 @@ assistant's behaviour. Then we prove that the code implements the
 specification, and prove properties about the proof assistant from the
 abstract machine.
 
+This requires both "stacks" in the diagram describing "phase three":
+"HOL + code generation" allows us to program proof assistants and
+prove properties about them, then the "Set theory" tower describes the
+different foundations for the Working Mathematician.
+
 ## Inspirations
 
-This project is motivated from Hilbert's programme broadly, but how
-we're implementing it as a website which links identifiers back to
-their definitions (all the way back to Standard ML's "basis" [prelude]
-library) was heavily inspired by [Emacs's](https://www.gnu.org/software/emacs/manual/html_node/emacs/Looking-Up-Identifiers.html) <kbd>M-.</kbd> taking the
-user to the definition of identifiers all the way back to the C code.
+This project is motivated from Hilbert's programme broadly.
 
-The basic 3-language strategy (use (1) a programming language to build
+**Links.** How we're implementing it as a website which links
+identifiers back to their definitions (all the way back to Standard
+ML's "basis" [prelude] library) was heavily inspired by
+[Emacs's](https://www.gnu.org/software/emacs/manual/html_node/emacs/Looking-Up-Identifiers.html)
+<kbd>M-.</kbd> taking the user to the definition of identifiers all
+the way back to the C code.
+
+This useful quality has been appreciated elsewhere. As Martin Escardo
+[wrote](https://mathstodon.xyz/@MartinEscardo/114236504243093715) on Mathstodon:
+
+> The great virtue proof assistants, more than verifying correctness, is the ability to organize mathematical knowledge so that it is recorded and can be inspected to any level of detail by just following links.
+
+**Using a logical framework.** The basic 3-language strategy (use (1) a programming language to build
 (2) a logical framework to implement (3) a proof assistant) was
 proposed in Robert Pollack's "On extensibility of proof checkers" (in
 Dybjer, Nordström, and Smith (eds),
 <cite>International Workshop on Types for Proofs and Programs</cite> TYPES
 1994, Springer, pp. 140-161, [`doi:10.1007/3-540-60579-7_8`](https://doi.org/10.1007/3-540-60579-7_8)). 
 
+**Exploring Mizar-like proof languages.**
 But it stemmed from trying to explore [Mizar](https://mizar.uwb.edu.pl/)-like declarative style
 proof assistants, and see how we could support "variations of the axioms"
 (like using Feferman universes instead of Grothendieck universes).
 
+Using the "usual mathematical language" for proofs is a natural and
+desirable quality, which has not been adequately explored. In the same
+thread I cited earlier, Martin Escardo [writes](https://mathstodon.xyz/@MartinEscardo/114242173963261741):
+
+> One open question, regarding proof assistants, is whether they will change in the way of accepting proofs written in a more natural language, or whether people will get used to the kind of language currently used, or something in between.
+> 
+> What I observe is that students (both UG and PhD), from both mathematics and computer science departments, are very quick to absorb the current existing languages and effectively use them. But this is a different story for older mathematicians who are exploring this new territory.
+> 
+> Personally, I wish the languages used by proof assistants evolve to look more like the language we use in mathematical prose. But this may be because I am old enough.
+
+**Exploring the Metatheory.**
 It'd be nice to reason about the metatheory of a Mizar-like proof
 assistant. [Isabelle](https://isabelle.in.tum.de/) is an
 extraordinarily extensible logical framework (which acts like an
@@ -69,6 +144,7 @@ A similar project is Cezary Kaliszyk and Karol Pąk's Isabelle/Mizar
 research programme. Many of the papers reporting results concerning
 Isabelle/Mizar may be found on [Karol Pąk's homepage](https://alioth.uwb.edu.pl/~pakkarol/publications.php).
 
+**Other software: Emacs and Smalltalk.**
 Daniel de Haas's observations about
 [what Emacs got right](https://danielde.dev/blog/what-emacs-got-right)
 is applicable to our endeavour, as is Smalltalk's "extreme" philosophy
@@ -78,7 +154,10 @@ is applicable to our endeavour, as is Smalltalk's "extreme" philosophy
 ## Languages as Ontological Committment
 
 The basic idea underlying the presentation: everything is built out of
-[languages](intro/language.md). It's [languages all the way down](https://en.wikipedia.org/wiki/Turtles_all_the_way_down).
+[languages](intro/language.md). Philosophers would say we are taking
+languages as an [ontological committment](https://plato.stanford.edu/entries/ontological-commitment/),
+i.e., it's the basic "building block" for our endeavours.
+"It's [languages all the way down](https://en.wikipedia.org/wiki/Turtles_all_the_way_down)."
 
 We start with an informal metalanguage (English), describe a formal
 metalanguage ([Standard ML](sml/index.md)), and use it to construct proof assistants.
